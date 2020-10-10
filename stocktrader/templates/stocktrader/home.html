@@ -2,6 +2,21 @@
 
 {% block content %}
 
-<h1>JELLO WORLD!</h1>
+{% if api %}
+    {% if api == "Error..." %}
+        Your ticker symbol may have been misspelled.
+        Please try again.
+        {% else %}
+
+            <h1>{{ api.companyName }}</h1><br>
+            Price: ${{ api.latestPrice }}<br>
+            Previous Close Price: ${{ api.previousClose }}<br>
+            Year-to-date Change: ${{ api.ytdChange }}<br>
+            52 Week High: ${{ api.week52High }}<br>
+            52 Week Low: ${{ api.week52Low }}<br>
+            Market Cap: {{ api.marketCap }}<br>
+            
+        {% endif %}
+{% endif %}
 
 {% endblock %}
