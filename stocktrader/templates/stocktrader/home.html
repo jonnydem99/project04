@@ -1,5 +1,5 @@
 {% extends 'base.html' %}
-
+{% load static %}
 
 {% block content %}
 
@@ -8,7 +8,7 @@
 {% endif %}
 <div class="container mt-4">
     <div class="row justify-content-center">
-        <div class="col text-left">
+        <div class="col-sm-9 pt-4 ml-4 bg-success">
             {% if api %}
             {% if api == "Error..." %}
             There was an error. Please check your spelling and try again. If issue persists please wait a minute and try
@@ -16,15 +16,20 @@
             {% else %}
 
             <h1>{{ api.companyName }}</h1><br>
-            Price: ${{ api.latestPrice }}<br>
-            Previous Close Price: ${{ api.previousClose }}<br>
-            Year-to-date Change: ${{ api.ytdChange }}<br>
-            52 Week High: ${{ api.week52High }}<br>
-            52 Week Low: ${{ api.week52Low }}<br>
-            Market Cap: {{ api.marketCap }}<br>
+            <h3>Price: <small>${{ api.latestPrice }}<br></small>
+            Previous Close Price: <small>${{ api.previousClose }}<br></small>
+            Year-to-date Change: <small>${{ api.ytdChange }}<br></small>
+            52 Week High: <small>${{ api.week52High }}<br></small>
+            52 Week Low: <small>${{ api.week52Low }}<br></small>
+            Market Cap: <small>{{ api.marketCap }}<br></h3></small>
 
             {% endif %}
             {% endif %}
+        </div>
+    </div>
+    <div class="row justify-content-center">
+        <div class="col-sm-12">
+            <img class="img-fluid" src="{% static 'stock.png' %}" alt="stock graph">
         </div>
     </div>
 </div>
