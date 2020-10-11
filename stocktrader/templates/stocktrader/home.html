@@ -1,12 +1,19 @@
 {% extends 'base.html' %}
 
+
 {% block content %}
 
-{% if api %}
-    {% if api == "Error..." %}
-        Your ticker symbol may have been misspelled.
-        Please try again.
-        {% else %}
+{% if ticker %}
+{{ ticker }}
+{% endif %}
+<div class="container mt-4">
+    <div class="row justify-content-center">
+        <div class="col text-left">
+            {% if api %}
+            {% if api == "Error..." %}
+            There was an error. Please check your spelling and try again. If issue persists please wait a minute and try
+            again. If problem continues to persist, set your computer on fire.
+            {% else %}
 
             <h1>{{ api.companyName }}</h1><br>
             Price: ${{ api.latestPrice }}<br>
@@ -15,8 +22,10 @@
             52 Week High: ${{ api.week52High }}<br>
             52 Week Low: ${{ api.week52Low }}<br>
             Market Cap: {{ api.marketCap }}<br>
-            
-        {% endif %}
-{% endif %}
 
+            {% endif %}
+            {% endif %}
+        </div>
+    </div>
+</div>
 {% endblock %}
