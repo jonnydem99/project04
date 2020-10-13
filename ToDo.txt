@@ -1,0 +1,4 @@
+1. sign-in/sign-out functionality
+2. Buying and selling functionality
+3. add comments to code
+4. create README with instructions

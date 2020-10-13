@@ -6,6 +6,8 @@ import pandas as pd
 import numpy as np
 from datetime import datetime, timedelta
 import yfinance as yf
+import os
+from django.conf import settings
 
 N = 365
 date_N_days_ago = datetime.now() - timedelta(days=N)
@@ -41,7 +43,8 @@ def create_plot(stock_data, ticker):
     plt.legend()
     plt.title('Stock Price over Time')
     # plt.show();
-    fig.savefig('stocktrader\static\stock.png')
+    IMGDIR= os.path.join(settings.BASE_DIR,'stocktrader\static')
+    fig.savefig(IMGDIR + '\my_plot.png')
     plt.close(fig)
 
 

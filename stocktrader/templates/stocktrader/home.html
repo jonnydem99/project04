@@ -8,7 +8,7 @@
 {% endif %}
 <div class="container mt-4">
     <div class="row justify-content-center">
-        <div id='contentdata' class="col-sm-9 pt-4 ml-4 bg-success">
+        <div id='contentdata' class="col-sm-9 pt-4 ml-5 bg-success">
             {% if api %}
             {% if api == "Error..." %}
             There was an error. Please check your spelling and try again. If issue persists please wait a minute and try
@@ -29,7 +29,8 @@
     </div>
     <div id='contentgraph' class="row justify-content-center">
         <div class="col-sm-12">
-            <img class="img-fluid" src="{% static 'stock.png' %}" alt="stock graph">
+            {% load static %} 
+            <img class="img-fluid" src="{% static 'my_plot.png' %}" width="auto" alt="ticker graph" />
         </div>
     </div>
 </div>
